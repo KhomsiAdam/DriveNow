@@ -1,0 +1,78 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap');
+
+body {
+    background: #F2F2F2;
+    margin: 0;
+    font-family: Raleway;
+}
+
+.navbar {
+    background-color: #242424;
+    padding: 1em;
+    .logo {
+        text-decoration: none;
+        font-weight: bold;
+        color: #FFFFFF;
+        font-size: 2em;
+        span {
+            color: #CAA900;
+        }
+    }
+    nav {
+        display: none;
+    }
+    
+    .container {
+        display: flex;
+        place-content: space-between;
+    }
+}
+
+.mobile-menu-open {
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+.left-col {
+    h1 {
+        font-size: 2.5em;
+    }
+    .rent {
+        background: #CAA900;
+        color: #FFFFFF;
+        text-decoration: none;
+        padding: 0.6em 1.3em;
+        font-size: 1.4em;
+        border-radius: 0.2em;
+        font-weight: bold;
+        display: inline-block;
+    }
+}
+
+.hero {
+    color: #FFFFFF;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.5) url(..//images/berline.jpg);
+    /**background-image: url(..//images/berline.jpg);**/
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    .container {
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+    }
+}
