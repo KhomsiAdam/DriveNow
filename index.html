@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>DriveNow</title>
 </head>
+
 <body>
     <!-- Navigation Menu Bar -->
     <div class="navbar">
@@ -14,7 +16,8 @@
             <a class="logo" href="index.html">Drive<span>Now</span></a>
             <img id="menu-open" class="mobile-menu-open" src="icons/mobile-menu.svg" alt="Open Mobile Navigation Menu">
             <nav>
-                <img id="menu-close" class="mobile-menu-close" src="icons/mobile-menu-close.svg" alt="Close Mobile Navigation Menu">
+                <img id="menu-close" class="mobile-menu-close" src="icons/mobile-menu-close.svg"
+                    alt="Close Mobile Navigation Menu">
                 <ul>
                     <li class="current"><a href="#">Home</a></li>
                     <li><a href="#">Gallery</a></li>
@@ -80,72 +83,80 @@
                     <li class="car-specs-transmission">Transmission Type : <span>Manuelle.</span></li>
                 </ul>
             </div>
-            
+
         </div>
         <div class="view-button">
             <a href="#" class="view-more">View More</a>
         </div>
     </section>
-<!-- Contact Section -->
+    <!-- Contact Section -->
     <section class="contact">
         <div class="container">
             <div class="reservation">
                 <h2>Reservation</h2>
-                <label for="vehicle">Choose a type of vehicle :</label>
-                <select name="vehicle" id="vehicle">
-                    <option hidden disabled selected value> -- select an option -- </option>
-                    <option value="moto">Moto</option>
-                    <option value="compact">Compact</option>
-                    <option value="citadine">Citadine</option>
-                    <option value="utilitaire">Utilitaire</option>
-                    <option value="berline">Berline</option>
-                    <option value="camion">Camion</option>
-                    <option value="engine">Engin de chantier</option>
-                </select>
-                <br>
-                <label for="fuel">Choose a type of Fuel :</label>
-                <select name="fuel" id="fuel">
-                    <option hidden disabled selected value> -- select an option -- </option>
-                    <option value="essence">Essence</option>
-                    <option value="diesel">Diesel</option>
-                    <option value="hybride">Hybride</option>
-                    <option value="electrique">Electrique</option>
-                </select>
-                <br>
-                <label for="transmission">Choose a type of Transmission :</label>
-                <select name="transmission" id="transmission">
-                    <option hidden disabled selected value> -- select an option -- </option>
-                    <option value="man">Manuelle</option>
-                    <option value="auto">Automatique</option>
-                </select>
-                <br>
-                <label for="days">Please enter the number of days you want to rent the vehicle (from 1 to 30 days):</label>
-                <input type="number" id="days" name="days" min="1" max="30" onkeyup="if(parseInt(this.value)>30){ this.value =30; return false; }">
-                <input type="submit" class="send-days" value="Submit">
+                <form name="myform">
+                    <select name="vehicleItems" id="vehicleItems" onChange="resetToDefault(); calculatePrice()">
+                        <option hidden disabled selected value="0">-- Choose a type of Vehicle --</option>
+                        <option value="10">Moto (10€)</option>
+                        <option value="12">Citadine (12€)</option>
+                        <option value="14">Compact (14€)</option>
+                        <option value="16">Utilitaire (16€)</option>
+                        <option value="20">Berline (20€)</option>
+                        <option value="250">Camion (250€)</option>
+                        <option value="900">Engin de chantier (900€)</option>
+
+                    </select>
+
+                    <select name="fuelItems" id="fuelItems" onChange="calculatePrice()" hidden>
+                        <option hidden disabled selected value="0"> -- Choose a type of Fuel -- </option>
+                        <option value="14">Essence (+14% of base price)</option>
+                        <option value="21">Diesel (+21% of base price)</option>
+                        <option value="9">Hybride (+9% of base price)</option>
+                        <option value="5">Electrique (+5% of base price)</option>
+                    </select>
+
+                    <select name="transmissionItems" id="transmissionItems" onChange="calculatePrice()" hidden>
+                        <option hidden disabled selected value="0"> -- Choose a type of Transmission -- </option>
+                        <option value="0">Manuelle</option>
+                        <option value="19">Automatique (+19% of base price)</option>
+                    </select>
+                    <br>
+                    <label for="days" id="enterdays" hidden>Please enter the number of days you want to rent the vehicle (from 1 to 30 days):</label>
+                    <input type="number" id="days" name="days" value="1" min="1" max="30" onChange="calculatePrice()" hidden>
+                    <!-- onkeyup="if(parseInt(this.value)>30){ this.value =30; return false; }" -->
+                </form>
+
+                <button type="button" onclick="calculatePrice(); showPrice()">Calculate</button>
+
+                <p>new calculated price:</p>
+                <input type="text" id="rentPrice" Size=8 readonly>
             </div>
-            
+
             <div class="contact">
                 <h2>Contact</h2>
                 <form action="">
                     <label for="name">Nom</label>
                     <input type="text" id="name" name="name">
-                    
+
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email">
-                    
+
                     <label for="subject">Sujet</label>
                     <input type="subject" id="subject" name="subject">
-                    
+
                     <label for="message">Message</label>
-                    
+
                     <textarea name="message" id="message" cols="30" rows="10"></textarea>
                     <br>
-                    <input type="submit" class="send-msg" value="Send Message">
+                    <button type="button" class="send-msg">Send Message</button>
                 </form>
             </div>
-            
+
         </div>
     </section>
-    <script src="javascript/script.js"></script>
+    <script src="javascript/script.js">
+
+    </script>
 </body>
+
 </html>

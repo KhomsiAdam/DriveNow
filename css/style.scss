@@ -278,15 +278,34 @@ select {
         box-sizing: border-box;
 }
 
-input[type="submit"] {
+/*#fuel {
+    display: none;
+}
+#fuel.show {
+    display: block;
+}
+#transmission {
+    display: none;
+}
+#transmission.show {
+    display: block;
+}*/
+
+button[type="button"] {
     background-color: #CAA900;
     color: #FFFFFF;
     font-weight: bold;
     font-size: 1.3em;
     border: none;
-    margin-bottom: 5em;
+    margin-bottom: 1em;
     display: inline-block;
     cursor: pointer;
+    width: 200px;
+    height: 50px;
+}
+
+#PicExtPrice {
+    display: inline-block;
 }
 
 @media only screen and (min-width: 768px) {
