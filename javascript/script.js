@@ -1,15 +1,16 @@
 /* Mobile Navigation */
+
 // assign navigation and buttons to variables
 const nav = document.getElementById("mobile");
 const mobileBtn = document.getElementById('menu-open');
 const mobileBtnClose = document.getElementById('menu-close');
+
 // show the mobile nav
 function openNav() {
     //nav.style.display = "block";
     // stop scrolling
     document.querySelector('body').style.overflowY = "hidden";
-    //nav.style.opacity = "1";
-    //.style.height = "100vh"
+    // mobile nav menu sliding down
     nav.style.transform = "translateY(0%)";
 }
 
@@ -18,13 +19,12 @@ function closeNav() {
     //nav.style.display = "none";
     // enable scrolling
     document.querySelector('body').style.overflowY = "unset";
-    
-    //nav.style.opacity = "0";
-    //nav.style.height = "0";
-    nav.style.transform = "translateY(-100%)";
+    // mobile nav menu sliding back up
+    nav.style.transform = "translateY(-400%)";
 }
 
 /* Reservation/Price Estimation of Vehicle Rental */
+
 // assign elements to variables
 const vehicleItems = document.getElementById("vehicleItems");
 const fuelItems = document.getElementById("fuelItems");
@@ -166,18 +166,19 @@ function calculatePrice() {
 
 }
 
+/* Contact Form User Input and Overlay */
 
 // get the overlay
 var overlay = document.getElementById("contact-overlay");
+
 // display the overlay
 function openOverlay() {
     var contactName = document.getElementById("name").value;
     var contactEmail = document.getElementById("email").value;
     var contactSubject = document.getElementById("subject").value;
     var contactMessage = document.getElementById("message").value;
-
+    // checking if the inputs are empty else get them from the form and into the overlay
     if (contactName == "" || contactEmail == "" || contactSubject == "" || contactMessage == "") {
-        /* overlay.style.display = "none"; */
         alert("Please fill all the required fields.");
         return false;
     } else {
@@ -185,16 +186,15 @@ function openOverlay() {
         document.getElementById("confirm-email").innerHTML = contactEmail;
         document.getElementById("confirm-subject").innerHTML = contactSubject;
         document.getElementById("confirm-message").innerHTML = contactMessage;
-
+        // display the overlay with the user informations
         overlay.style.display = "block";
         // stop scrolling
-        document.querySelector('body').style.overflow = "hidden";
+        document.querySelector('body').style.overflowY = "hidden";
     }
 }
 // hide the overlay
 function closeOverlay() {
     overlay.style.display = "none";
     // enable scrolling
-    document.querySelector('body').style.overflow = "unset";
-
+    document.querySelector('body').style.overflowY = "unset";
 }
