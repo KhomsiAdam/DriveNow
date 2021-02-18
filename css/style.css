@@ -122,15 +122,13 @@ section {
 }
 
 .load {
-  -webkit-animation: slide 0.1s;
-          animation: slide 0.1s;
+  -webkit-animation: slide 0.01s;
+          animation: slide 0.01s;
 }
 
 .hero {
   color: #FFFFFF;
   position: relative;
-  /*     height: 400px;
- */
   overflow: hidden;
   background-blend-mode: darken;
   background-repeat: no-repeat;
@@ -646,7 +644,10 @@ select {
       grid-template-columns: 50% 50%;
   -ms-grid-rows: 15% 50% 25% 10%;
       grid-template-rows: 15% 50% 25% 10%;
-      grid-template-areas: 'logo logo' 'left middle' 'right right' 'cr cr';
+      grid-template-areas: 'logo logo'
+ 'left middle'
+ 'right right'
+ 'cr cr';
 }
 
 .footer .container .footer-left {
@@ -869,7 +870,9 @@ select {
         grid-template-columns: 33.33% 33.33% 33.33%;
     -ms-grid-rows: 20% 65% 15%;
         grid-template-rows: 20% 65% 15%;
-        grid-template-areas: 'logo logo logo' 'left middle right' 'cr cr cr';
+        grid-template-areas: 'logo logo logo'
+ 'left middle right'
+ 'cr cr cr';
   }
   .footer .container .footer-left {
     font-size: 1em;
