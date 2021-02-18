@@ -170,6 +170,8 @@ function calculatePrice() {
 
 // get the overlay
 var overlay = document.getElementById("contact-overlay");
+var overlayEmpty = document.getElementById("contact-overlay-empty");
+
 
 // display the overlay
 function openOverlay() {
@@ -179,7 +181,8 @@ function openOverlay() {
     var contactMessage = document.getElementById("message").value;
     // checking if the inputs are empty else get them from the form and into the overlay
     if (contactName == "" || contactEmail == "" || contactSubject == "" || contactMessage == "") {
-        alert("Please fill all the required fields.");
+        //alert("Please fill all the required fields.");
+        overlayEmpty.style.display = "block";
         return false;
     } else {
         document.getElementById("confirm-name").innerHTML = contactName;
@@ -195,6 +198,7 @@ function openOverlay() {
 // hide the overlay
 function closeOverlay() {
     overlay.style.display = "none";
+    overlayEmpty.style.display = "none";
     // enable scrolling
     document.querySelector('body').style.overflowY = "unset";
 }

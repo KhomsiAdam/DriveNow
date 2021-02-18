@@ -576,7 +576,7 @@ select {
     }
 }
 // media query for desktop version
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1025px) {
 
     .mobile-menu-open, .mobile-menu-close {
         display: none;
