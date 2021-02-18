@@ -121,11 +121,6 @@ section {
   cursor: pointer;
 }
 
-.load {
-  -webkit-animation: slide 0.01s;
-          animation: slide 0.01s;
-}
-
 .hero {
   color: #FFFFFF;
   position: relative;
