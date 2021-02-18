@@ -183,6 +183,8 @@ function openOverlay() {
     if (contactName == "" || contactEmail == "" || contactSubject == "" || contactMessage == "") {
         //alert("Please fill all the required fields.");
         overlayEmpty.style.display = "block";
+        // stop scrolling
+        document.querySelector('body').style.overflowY = "hidden";
         return false;
     } else {
         document.getElementById("confirm-name").innerHTML = contactName;
