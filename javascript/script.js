@@ -160,6 +160,8 @@ function calculatePrice() {
 
     //calculate total value  
     var total = (vehicle + ((vehicle * fuel) / 100) + ((vehicle * transmission) / 100)) * days;
+    //round the decimals to 2 numbers
+    total = total.toFixed(2);
 
     //assign value to rentPrice = Show the calculated price
     document.getElementById("rentPrice").value = total + " €";
