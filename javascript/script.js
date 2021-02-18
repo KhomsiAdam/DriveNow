@@ -1,153 +1,158 @@
-// Mobile Navigation
-const mobileBtn = document.getElementById('menu-open')
-nav = document.querySelector('nav')
-mobileBtnClose = document.getElementById('menu-close');
-
-mobileBtn.addEventListener('click', () => {
-    nav.classList.add('mobile-menu-open');
-})
-
-mobileBtnClose.addEventListener('click', () => {
-    nav.classList.remove('mobile-menu-open');
-})
-
-// price calculation
-function resetToDefault() {
-    document.getElementById("fuelItems").options[0].selected = true;
-    document.getElementById("transmissionItems").options[0].selected = true;
-    document.getElementById("days").value = "1";
+/* Mobile Navigation */
+// assign navigation and buttons to variables
+const nav = document.getElementById("mobile");
+const mobileBtn = document.getElementById('menu-open');
+const mobileBtnClose = document.getElementById('menu-close');
+// show the mobile nav
+function openNav() {
+    //nav.style.display = "block";
+    // stop scrolling
+    document.querySelector('body').style.overflowY = "hidden";
+    //nav.style.opacity = "1";
+    //.style.height = "100vh"
+    nav.style.transform = "translateY(0%)";
 }
 
-/*function showPrice() {
-  document.getElementById("rentPrice").hidden = false;
-}*/
+// hide the mobile nav
+function closeNav() {
+    //nav.style.display = "none";
+    // enable scrolling
+    document.querySelector('body').style.overflowY = "unset";
+    
+    //nav.style.opacity = "0";
+    //nav.style.height = "0";
+    nav.style.transform = "translateY(-100%)";
+}
 
+/* Reservation/Price Estimation of Vehicle Rental */
+// assign elements to variables
+const vehicleItems = document.getElementById("vehicleItems");
+const fuelItems = document.getElementById("fuelItems");
+const transmissionItems = document.getElementById("transmissionItems");
+const daysItem = document.getElementById("days");
+
+// reset values to default
+function resetToDefault() {
+    fuelItems.options[0].selected = true;
+    transmissionItems.options[0].selected = true;
+    daysItem.value = "1";
+}
+
+// price calculation in real time
 function calculatePrice() {
 
-    //get selected price from value
-    var temp = document.getElementById("vehicleItems");
-    var vehicle = temp.options[temp.selectedIndex].value;
+    //get selected price of chosen vehicle from its option value
+    var vehicle = vehicleItems.options[vehicleItems.selectedIndex].value;
 
     //convert vehicle value string to integer
     vehicle = parseInt(vehicle);
 
-    //switch statement to toggle between valid selection (for fuel & transmission) for each vehicle type
+    //show & hide fuel options [1:essence; 2:diesel; 3:hybride; 4:electric]
     switch (vehicle) {
+        // if "moto" is chosen
         case 10:
-            //show or hide options depending on vehicle selected
-            document.getElementById("fuelItems").hidden = false;
-            document.getElementById("fuelItems").options[1].hidden = false;
-            document.getElementById("fuelItems").options[2].hidden = true;
-            document.getElementById("fuelItems").options[3].hidden = true;
-            document.getElementById("fuelItems").options[4].hidden = false;
-            document.getElementById("transmissionItems").hidden = true;
-            document.getElementById("enterdays").hidden = false;
-            document.getElementById("days").hidden = false;
+            //show & hide fuel options [1:essence; 2:diesel; 3:hybride; 4:electric]
+            fuelItems.hidden = false;
+            fuelItems.options[1].hidden = false;
+            fuelItems.options[2].hidden = true;
+            fuelItems.options[3].hidden = true;
+            fuelItems.options[4].hidden = false;
+            //show transmission type [1:manual; 2:auto]
+            transmissionItems.hidden = true;
             break;
 
+        // if "citadine" is chosen
         case 12:
-
-            //show or hide options depending on vehicle selected
-            document.getElementById("fuelItems").hidden = false;
-            document.getElementById("fuelItems").options[1].hidden = false;
-            document.getElementById("fuelItems").options[2].hidden = false;
-            document.getElementById("fuelItems").options[3].hidden = false;
-            document.getElementById("fuelItems").options[4].hidden = false;
-            document.getElementById("transmissionItems").hidden = false;
-            document.getElementById("transmissionItems").options[1].hidden = false;
-            document.getElementById("transmissionItems").options[2].hidden = true;
-            document.getElementById("enterdays").hidden = false;
-            document.getElementById("days").hidden = false;
+            //show & hide fuel options [1:essence; 2:diesel; 3:hybride; 4:electric]
+            fuelItems.hidden = false;
+            fuelItems.options[1].hidden = false;
+            fuelItems.options[2].hidden = false;
+            fuelItems.options[3].hidden = false;
+            fuelItems.options[4].hidden = false;
+            //show transmission type [1:manual; 2:auto]
+            transmissionItems.hidden = false;
+            transmissionItems.options[1].hidden = false;
+            transmissionItems.options[2].hidden = true;
             break;
 
+        // if "compact" is chosen
         case 14:
-
-            //show or hide options depending on vehicle selected
-            document.getElementById("fuelItems").hidden = false;
-            document.getElementById("fuelItems").options[1].hidden = false;
-            document.getElementById("fuelItems").options[2].hidden = false;
-            document.getElementById("fuelItems").options[3].hidden = false;
-            document.getElementById("fuelItems").options[4].hidden = true;
-            document.getElementById("transmissionItems").hidden = false;
-            document.getElementById("transmissionItems").options[1].hidden = false;
-            document.getElementById("transmissionItems").options[2].hidden = true;
-            document.getElementById("enterdays").hidden = false;
-            document.getElementById("days").hidden = false;
+            //show & hide fuel options [1:essence; 2:diesel; 3:hybride; 4:electric]
+            fuelItems.hidden = false;
+            fuelItems.options[1].hidden = false;
+            fuelItems.options[2].hidden = false;
+            fuelItems.options[3].hidden = false;
+            fuelItems.options[4].hidden = true;
+            //show transmission type [1:manual; 2:auto]
+            transmissionItems.hidden = false;
+            transmissionItems.options[1].hidden = false;
+            transmissionItems.options[2].hidden = true;
             break;
 
+        // if "utilitaire" is chosen
         case 16:
-
-            //show or hide options depending on vehicle selected
-            document.getElementById("fuelItems").hidden = false;
-            document.getElementById("fuelItems").options[1].hidden = true;
-            document.getElementById("fuelItems").options[2].hidden = false;
-            document.getElementById("fuelItems").options[3].hidden = true;
-            document.getElementById("fuelItems").options[4].hidden = true;
-            document.getElementById("transmissionItems").hidden = false;
-            document.getElementById("transmissionItems").options[1].hidden = false;
-            document.getElementById("transmissionItems").options[2].hidden = true;
-            document.getElementById("enterdays").hidden = false;
-            document.getElementById("days").hidden = false;
+            //show & hide fuel options [1:essence; 2:diesel; 3:hybride; 4:electric]
+            fuelItems.hidden = false;
+            fuelItems.options[1].hidden = true;
+            fuelItems.options[2].hidden = false;
+            fuelItems.options[3].hidden = true;
+            fuelItems.options[4].hidden = true;
+            //show transmission type [1:manual; 2:auto]
+            transmissionItems.hidden = false;
+            transmissionItems.options[1].hidden = false;
+            transmissionItems.options[2].hidden = true;
             break;
 
+        // if "berline" is chosen
         case 20:
-
-            //show or hide options depending on vehicle selected
-            document.getElementById("fuelItems").hidden = false;
-            document.getElementById("fuelItems").options[1].hidden = false;
-            document.getElementById("fuelItems").options[2].hidden = false;
-            document.getElementById("fuelItems").options[3].hidden = false;
-            document.getElementById("fuelItems").options[4].hidden = true;
-            document.getElementById("transmissionItems").hidden = false;
-            document.getElementById("transmissionItems").options[1].hidden = true;
-            document.getElementById("transmissionItems").options[2].hidden = false;
-            document.getElementById("enterdays").hidden = false;
-            document.getElementById("days").hidden = false;
+            //show & hide fuel options [1:essence; 2:diesel; 3:hybride; 4:electric]
+            fuelItems.hidden = false;
+            fuelItems.options[1].hidden = false;
+            fuelItems.options[2].hidden = false;
+            fuelItems.options[3].hidden = false;
+            fuelItems.options[4].hidden = true;
+            //show transmission type [1:manual; 2:auto]
+            transmissionItems.hidden = false;
+            transmissionItems.options[1].hidden = true;
+            transmissionItems.options[2].hidden = false;
             break;
 
+        // if "camion" is chosen
         case 250:
-
-            //show or hide options depending on vehicle selected
-            document.getElementById("fuelItems").hidden = false;
-            document.getElementById("fuelItems").options[1].hidden = true;
-            document.getElementById("fuelItems").options[2].hidden = false;
-            document.getElementById("fuelItems").options[3].hidden = true;
-            document.getElementById("fuelItems").options[4].hidden = true;
-            //document.getElementById("fuelItems").options[2].selected = true;
-            document.getElementById("transmissionItems").hidden = false;
-            document.getElementById("transmissionItems").options[1].hidden = true;
-            document.getElementById("transmissionItems").options[2].hidden = false;
-            //document.getElementById("transmissionItems").options[2].selected = true;
-            document.getElementById("enterdays").hidden = false;
-            document.getElementById("days").hidden = false;
+            //show & hide fuel options [1:essence; 2:diesel; 3:hybride; 4:electric]
+            fuelItems.hidden = false;
+            fuelItems.options[1].hidden = true;
+            fuelItems.options[2].hidden = false;
+            fuelItems.options[3].hidden = true;
+            fuelItems.options[4].hidden = true;
+            //show transmission type [1:manual; 2:auto]
+            transmissionItems.hidden = false;
+            transmissionItems.options[1].hidden = true;
+            transmissionItems.options[2].hidden = false;
             break;
 
+        // if "engin de chantier" is chosen
         case 900:
-
-            //show or hide options depending on vehicle selected
-            document.getElementById("fuelItems").hidden = false;
-            document.getElementById("fuelItems").options[1].hidden = false;
-            document.getElementById("fuelItems").options[2].hidden = false;
-            document.getElementById("fuelItems").options[3].hidden = true;
-            document.getElementById("fuelItems").options[4].hidden = true;
-            document.getElementById("transmissionItems").hidden = false;
-            document.getElementById("transmissionItems").options[1].hidden = false;
-            document.getElementById("transmissionItems").options[2].hidden = true;
-            document.getElementById("enterdays").hidden = false;
-            document.getElementById("days").hidden = false;
+            //show & hide fuel options [1:essence; 2:diesel; 3:hybride; 4:electric]
+            fuelItems.hidden = false;
+            fuelItems.options[1].hidden = false;
+            fuelItems.options[2].hidden = false;
+            fuelItems.options[3].hidden = true;
+            fuelItems.options[4].hidden = true;
+            //show transmission type [1:manual; 2:auto]
+            transmissionItems.hidden = false;
+            transmissionItems.options[1].hidden = false;
+            transmissionItems.options[2].hidden = true;
             break;
 
         default:
             break;
     }
 
-    var temp = document.getElementById("fuelItems");
-    var fuel = temp.options[temp.selectedIndex].value;
-
-    var temp = document.getElementById("transmissionItems");
-    var transmission = temp.options[temp.selectedIndex].value;
-
-    var days = document.getElementById("days").value;
+    //get selected fuel/transmission/days values
+    var fuel = fuelItems.options[fuelItems.selectedIndex].value;
+    var transmission = transmissionItems.options[transmissionItems.selectedIndex].value;
+    var days = daysItem.value;
 
     //convert fuel and transmission value strings to integers
     fuel = parseInt(fuel);
@@ -156,7 +161,40 @@ function calculatePrice() {
     //calculate total value  
     var total = (vehicle + ((vehicle * fuel) / 100) + ((vehicle * transmission) / 100)) * days;
 
-    //assign value to rentPrice 
-    document.getElementById("rentPrice").value = total;
+    //assign value to rentPrice = Show the calculated price
+    document.getElementById("rentPrice").value = total + " €";
+
+}
+
+
+// get the overlay
+var overlay = document.getElementById("contact-overlay");
+// display the overlay
+function openOverlay() {
+    var contactName = document.getElementById("name").value;
+    var contactEmail = document.getElementById("email").value;
+    var contactSubject = document.getElementById("subject").value;
+    var contactMessage = document.getElementById("message").value;
+
+    if (contactName == "" || contactEmail == "" || contactSubject == "" || contactMessage == "") {
+        /* overlay.style.display = "none"; */
+        alert("Please fill all the required fields.");
+        return false;
+    } else {
+        document.getElementById("confirm-name").innerHTML = contactName;
+        document.getElementById("confirm-email").innerHTML = contactEmail;
+        document.getElementById("confirm-subject").innerHTML = contactSubject;
+        document.getElementById("confirm-message").innerHTML = contactMessage;
+
+        overlay.style.display = "block";
+        // stop scrolling
+        document.querySelector('body').style.overflow = "hidden";
+    }
+}
+// hide the overlay
+function closeOverlay() {
+    overlay.style.display = "none";
+    // enable scrolling
+    document.querySelector('body').style.overflow = "unset";
 
 }

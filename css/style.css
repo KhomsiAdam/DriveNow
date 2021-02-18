@@ -1,8 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap");
 body {
-  background: #F2F2F2;
+  background: #FFFFFF;
   margin: 0;
-  font-family: Raleway;
+  font-family: "Raleway",sans-serif;
+  overflow-x: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  width: 100%;
 }
 
 .navbar {
@@ -21,49 +26,54 @@ body {
   color: #CAA900;
 }
 
-.navbar .mobile-menu-open {
-  fill: #CAA900;
-}
-
-.navbar nav {
-  display: none;
-}
-
 .navbar nav.mobile-menu-open {
   display: block;
 }
 
-.navbar nav {
+.navbar nav.desktop-navigation {
+  display: none;
+}
+
+.navbar nav.mobile-navigation {
   position: fixed;
-  z-index: 999;
+  z-index: 1;
   right: 0;
   top: 0;
   background: #242424;
+  display: block;
   height: 100vh;
-  width: 100vw;
-  padding: 1em;
+  width: 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: translateY(-300%);
+          transform: translateY(-300%);
 }
 
-.navbar nav a {
+.navbar nav.mobile-navigation a {
   margin-left: 1em;
 }
 
-.navbar nav ul {
-  margin-top: 5em;
+.navbar nav.mobile-navigation ul {
+  margin-top: 6em;
 }
 
-.navbar nav li a {
+.navbar nav.mobile-navigation li a {
   color: #FFFFFF;
   text-decoration: none;
   display: block;
-  padding: 0.5em;
-  font-size: 1.3em;
+  padding: 1em 0 1em 0;
+  font-size: 2em;
   text-align: center;
+}
+
+.navbar nav.mobile-navigation li.current a {
+  color: #CAA900;
+  font-weight: bold;
 }
 
 .navbar .mobile-menu-close {
   float: right;
-  margin: 0.5em 1.2em;
+  margin: 1.5em 2.3em;
   cursor: pointer;
 }
 
@@ -85,34 +95,53 @@ ul {
 }
 
 section {
-  padding: 5em 2em;
+  padding: 3em 2em;
+}
+
+.left-col {
+  padding-left: 2em;
 }
 
 .left-col h1 {
-  font-size: 2em;
+  font-size: 2.5em;
+  margin-bottom: 0;
 }
 
-.left-col .rent {
+.yellow-button {
   background: #CAA900;
   color: #FFFFFF;
+  border: 2px solid #CAA900;
   text-decoration: none;
   padding: 0.6em 1.3em;
   font-size: 1.4em;
   border-radius: 0.2em;
   font-weight: bold;
   display: inline-block;
+  margin-bottom: 2em;
+  cursor: pointer;
+}
+
+.load {
+  -webkit-animation: slide 0.1s;
+          animation: slide 0.1s;
 }
 
 .hero {
   color: #FFFFFF;
   position: relative;
-  height: 400px;
+  /*     height: 400px;
+ */
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.5) url(..//images/berline.jpg);
   background-blend-mode: darken;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  padding: 0;
+  width: 120%;
+  height: 90vh;
+  -webkit-animation: slide 10s infinite;
+          animation: slide 10s infinite;
 }
 
 .hero .container {
@@ -121,8 +150,239 @@ section {
   bottom: 50%;
 }
 
+@-webkit-keyframes slide {
+  0% {
+    background: rgba(0, 0, 0, 0.5) url(../images/berline.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 110%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  20% {
+    background: rgba(0, 0, 0, 0.5) url(../images/berline.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  20.01% {
+    background: rgba(0, 0, 0, 0.5) url(../images/4x4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 110%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  40% {
+    background: rgba(0, 0, 0, 0.5) url(../images/4x4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  40.01% {
+    background: rgba(0, 0, 0, 0.5) url(../images/camion-chantier.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 110%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  60% {
+    background: rgba(0, 0, 0, 0.5) url(../images/camion-chantier.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  60.01% {
+    background: rgba(0, 0, 0, 0.5) url(../images/moto.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 110%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  80% {
+    background: rgba(0, 0, 0, 0.5) url(../images/moto.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  80.01% {
+    background: rgba(0, 0, 0, 0.5) url(../images/utilitaire.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 110%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.5) url(../images/utilitaire.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+}
+
+@keyframes slide {
+  0% {
+    background: rgba(0, 0, 0, 0.5) url(../images/berline.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 110%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  20% {
+    background: rgba(0, 0, 0, 0.5) url(../images/berline.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  20.01% {
+    background: rgba(0, 0, 0, 0.5) url(../images/4x4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 110%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  40% {
+    background: rgba(0, 0, 0, 0.5) url(../images/4x4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  40.01% {
+    background: rgba(0, 0, 0, 0.5) url(../images/camion-chantier.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 110%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  60% {
+    background: rgba(0, 0, 0, 0.5) url(../images/camion-chantier.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  60.01% {
+    background: rgba(0, 0, 0, 0.5) url(../images/moto.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 110%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  80% {
+    background: rgba(0, 0, 0, 0.5) url(../images/moto.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  80.01% {
+    background: rgba(0, 0, 0, 0.5) url(../images/utilitaire.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 110%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.5) url(../images/utilitaire.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+  }
+}
+
 .features {
-  background: #F8F4D9;
+  background: #242424;
+  color: #FFFFFF;
+}
+
+.features .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.features .container .features-list {
+  -webkit-box-flex: 75%;
+      -ms-flex: 75%;
+          flex: 75%;
+}
+
+.features .container .rent-illus {
+  display: none;
+  -webkit-box-flex: 25%;
+      -ms-flex: 25%;
+          flex: 25%;
+}
+
+.features .container .rent-illus img {
+  width: 177px;
+  height: 177px;
 }
 
 ul.features-list {
@@ -148,28 +408,27 @@ ul.features-list li:before {
 }
 
 .gallery {
-  background: #242424;
-  width: auto;
+  background: #F8F4D9;
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .gallery .view-button {
-  padding-top: 2em;
+  padding-top: 1.8em;
   text-align: center;
 }
 
-.gallery .view-button .view-more {
-  background: #CAA900;
-  color: #FFFFFF;
-  text-decoration: none;
-  padding: 0.6em 1.3em;
-  font-size: 1.4em;
-  border-radius: 0.2em;
-  font-weight: bold;
+.gallery .featured {
+  color: #242424;
+  padding-top: 1.5em;
+  margin-top: 0;
+  margin-bottom: 1.5em;
   text-align: center;
 }
 
 .vehicles {
-  background: #242424;
+  background: #F8F4D9;
   color: #FFFFFF;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -189,13 +448,16 @@ ul.features-list li:before {
   background: #FFFFFF;
   color: #242424;
   border-radius: 0.5em;
-  margin: 1em auto;
+  border: 3px solid #CAA900;
+  margin: 0 auto 3em auto;
+  width: 350px;
+  height: 453.57px;
 }
 
 .vehicles .car-card img {
   border-radius: 0.5em;
-  -o-object-fit: cover;
-     object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .car-title {
@@ -284,6 +546,11 @@ input, textarea {
   border: 1px solid gray;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  outline: none;
+}
+
+button {
+  outline: none;
 }
 
 select {
@@ -294,35 +561,181 @@ select {
   border: 1px solid gray;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 1em;
 }
 
-/*#fuel {
-    display: none;
-}
-#fuel.show {
-    display: block;
-}
-#transmission {
-    display: none;
-}
-#transmission.show {
-    display: block;
-}*/
-button[type="button"] {
-  background-color: #CAA900;
-  color: #FFFFFF;
+#days {
   font-weight: bold;
-  font-size: 1.3em;
-  border: none;
-  margin-bottom: 1em;
-  display: inline-block;
-  cursor: pointer;
-  width: 200px;
-  height: 50px;
+  font-size: 2em;
+  text-align: center;
 }
 
-#PicExtPrice {
+#rentPrice {
+  color: #CAA900;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2em;
+  border: 3px solid #CAA900;
+}
+
+#rentPrice {
   display: inline-block;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 20px;
+  text-align: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: scroll;
+}
+
+.overlay-content {
+  background-color: #FFFFFF;
+  margin: auto;
+  padding: 30px;
+  font-size: 1em;
+  border: 5px solid #CAA900;
+  border-radius: 0.5em;
+  width: 80%;
+  font-size: 1em;
+  text-align: center;
+}
+
+.overlay-content span {
+  font-weight: bold;
+}
+
+#overlay-close {
+  float: right;
+  cursor: pointer;
+}
+
+.form-button {
+  text-align: center;
+}
+
+#message {
+  margin-bottom: 2em;
+}
+
+#confirm-button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.footer {
+  height: auto;
+  background: #242424;
+  width: 100%;
+  padding: 0;
+}
+
+.footer .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  -ms-grid-rows: 15% 50% 25% 10%;
+      grid-template-rows: 15% 50% 25% 10%;
+      grid-template-areas: 'logo logo' 'left middle' 'right right' 'cr cr';
+}
+
+.footer .container .footer-left {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: left;
+  font-size: 1.2em;
+}
+
+.footer .container .footer-middle {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: middle;
+  font-size: 1.2em;
+}
+
+.footer .container .footer-right {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: right;
+  color: #9c9c9c;
+  font-weight: bold;
+  text-align: center;
+}
+
+.footer .container .footer-right p {
+  font-size: 0.8em;
+}
+
+.footer .container .copyright {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: cr;
+  text-align: center;
+  font-size: 1em;
+  color: #9c9c9c;
+}
+
+.footer .container .copyright p {
+  margin-top: 0.5em;
+  font-size: 0.8em;
+}
+
+.footer .container .copyright span a {
+  color: #CAA900;
+  text-decoration: none;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.footer .container .logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: logo;
+  padding-top: 0.5em;
+  text-decoration: none;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-size: 2em;
+}
+
+.footer .container .logo span {
+  color: #CAA900;
+}
+
+.footer .container a {
+  margin-left: 1em;
+}
+
+.footer .container ul {
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+.footer .container li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  display: block;
+  padding-bottom: 1em;
+  font-size: 1em;
+  text-align: left;
+}
+
+.footer .container li.current a {
+  color: #CAA900;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 768px) {
@@ -335,7 +748,17 @@ button[type="button"] {
     -ms-grid-columns: 180px auto;
         grid-template-columns: 180px auto;
   }
-  .navbar nav {
+  .navbar .logo span {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: #FFFFFF;
+  }
+  .navbar .logo:hover span {
+    color: #CAA900;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .navbar nav.desktop-navigation {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -345,24 +768,150 @@ button[type="button"] {
     background: none;
     position: unset;
     height: auto;
+    background: #242424;
+    display: block;
     width: 100%;
     padding: 0;
   }
-  .navbar nav ul {
+  .navbar nav.desktop-navigation ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     margin-top: 0;
   }
-  .navbar nav li.current a {
+  .navbar nav.desktop-navigation li.current a {
     color: #CAA900;
     font-weight: bold;
+  }
+  .navbar nav.desktop-navigation li {
+    margin: 0 1em 0 1em;
+  }
+  .navbar nav.desktop-navigation li a {
+    font-size: 1.3em;
+    padding: 0.5em;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .navbar nav.desktop-navigation li a:hover {
+    color: #CAA900;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .navbar nav.desktop-navigation li.fb-icon {
+    margin: 0.2em 0 0 2em;
+  }
+  .navbar nav.desktop-navigation li.fb-icon a {
+    padding: 0.5em 0 0 0;
+    background-color: #242424;
+    background-image: url(../icons/facebook.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 25px;
+    width: 25px;
+    -webkit-transition: none;
+    transition: none;
+  }
+  .navbar nav.desktop-navigation li.fb-icon a:hover {
+    background-image: url(../icons/facebook-hover.svg);
+    -webkit-transition: none;
+    transition: none;
+  }
+  .navbar nav.desktop-navigation li.tweet-icon {
+    margin: 0.2em 0 0 2em;
+  }
+  .navbar nav.desktop-navigation li.tweet-icon a {
+    padding: 0.5em 0 0 0;
+    background-color: #242424;
+    background-image: url(../icons/twitter.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 25px;
+    width: 25px;
+    -webkit-transition: none;
+    transition: none;
+  }
+  .navbar nav.desktop-navigation li.tweet-icon a:hover {
+    background-image: url(../icons/twitter-hover.svg);
+    -webkit-transition: none;
+    transition: none;
+  }
+  .yellow-button {
+    background: none;
+    color: #CAA900;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .yellow-button:hover {
+    background: #CAA900;
+    color: #FFFFFF;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
   .vehicles {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+  .form-button {
+    text-align: left;
+  }
+  .footer .container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 33.33% 33.33% 33.33%;
+        grid-template-columns: 33.33% 33.33% 33.33%;
+    -ms-grid-rows: 20% 65% 15%;
+        grid-template-rows: 20% 65% 15%;
+        grid-template-areas: 'logo logo logo' 'left middle right' 'cr cr cr';
+  }
+  .footer .container .footer-left {
+    font-size: 1em;
+  }
+  .footer .container .footer-middle {
+    font-size: 1em;
+  }
+  .footer .container .footer-right {
+    text-align: left;
+    font-size: 1.1em;
+    padding-right: 2em;
+  }
+  .footer .container .footer-right p {
+    padding-top: 0.2em;
+  }
+  .footer .container .copyright {
+    font-size: 1.1em;
+  }
+  .footer .container .copyright span a {
+    text-decoration: none;
+  }
+  .footer .container .copyright span a:hover {
+    -webkit-text-decoration-line: underline;
+            text-decoration-line: underline;
+  }
+  .footer .container .logo span {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: #FFFFFF;
+  }
+  .footer .container .logo:hover span {
+    color: #CAA900;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .footer .container li a:hover {
+    color: #CAA900;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .features .container .rent-illus {
+    display: block;
   }
 }
 /*# sourceMappingURL=style.css.map */
