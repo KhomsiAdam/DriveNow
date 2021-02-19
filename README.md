@@ -6,4 +6,8 @@ Compétence 2 : Réaliser une interface utilisateur web statique et adaptable (N
 
 # DriveNow
 
+Netlify :
+https://drivenow.netlify.app/
+
+Github Pages :
 https://khomsiadam.github.io/DriveNow/index.html
